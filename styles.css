@@ -136,12 +136,12 @@ a:hover {
 .hero {
   align-items: stretch;
   display: grid;
-  gap: clamp(2rem, 5vw, 5rem);
-  grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: minmax(0, 0.88fr) minmax(360px, 1.12fr);
   margin: 0 auto;
   max-width: var(--max);
-  min-height: calc(100svh - 74px);
-  padding: clamp(3rem, 7vw, 6.5rem) 1.5rem clamp(2.5rem, 6vw, 5rem);
+  min-height: min(760px, calc(100svh - 74px));
+  padding: clamp(3rem, 6vw, 5.5rem) 1.5rem clamp(2.5rem, 5vw, 4.5rem);
 }
 
 .hero-copy {
@@ -165,11 +165,12 @@ p {
 }
 
 h1 {
-  font-size: clamp(3.2rem, 8vw, 7.5rem);
+  font-size: clamp(3rem, 6.1vw, 5.9rem);
   letter-spacing: 0;
-  line-height: 0.92;
+  line-height: 0.96;
   margin-bottom: 1.35rem;
-  max-width: 9ch;
+  max-width: 10.8ch;
+  overflow-wrap: break-word;
 }
 
 h2 {
@@ -239,13 +240,15 @@ h3 {
   display: grid;
   grid-template-rows: 1fr auto;
   margin: 0;
-  min-height: 460px;
+  min-height: 420px;
+  overflow: hidden;
 }
 
 .hero-media img {
   height: 100%;
-  min-height: 360px;
+  min-height: 330px;
   object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 
@@ -358,11 +361,17 @@ h3 {
 }
 
 .about {
+  align-items: start;
   display: grid;
-  gap: clamp(2rem, 6vw, 5rem);
-  grid-template-columns: minmax(260px, 0.78fr) minmax(320px, 1.22fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(260px, 0.9fr) minmax(340px, 1.1fr);
   padding-bottom: clamp(4rem, 9vw, 7rem);
   padding-top: clamp(4rem, 9vw, 7rem);
+}
+
+.about-copy h2 {
+  font-size: clamp(2.4rem, 5.2vw, 5.1rem);
+  max-width: 10.5ch;
 }
 
 .team-panel {
@@ -371,14 +380,23 @@ h3 {
   box-shadow: var(--shadow);
   display: grid;
   gap: clamp(1.25rem, 3vw, 2rem);
-  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1fr);
+  grid-template-columns: minmax(180px, 270px) minmax(0, 1fr);
   padding: clamp(1rem, 2vw, 1.4rem);
 }
 
-.team-panel img {
-  aspect-ratio: 1;
-  height: 100%;
+.team-photo {
+  align-self: start;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  margin: 0;
+  overflow: hidden;
+}
+
+.team-photo img {
+  aspect-ratio: 4 / 5;
+  height: auto;
   object-fit: cover;
+  object-position: center 28%;
   width: 100%;
 }
 
@@ -551,7 +569,11 @@ input[type="file"] {
   }
 
   h1 {
-    max-width: 10ch;
+    max-width: 11ch;
+  }
+
+  .about-copy h2 {
+    max-width: 14ch;
   }
 
   .cta .button {
@@ -586,6 +608,10 @@ input[type="file"] {
   .team-panel,
   .field-pair {
     grid-template-columns: 1fr;
+  }
+
+  .team-photo {
+    max-width: 320px;
   }
 
   .service-number {
