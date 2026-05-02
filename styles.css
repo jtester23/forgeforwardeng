@@ -288,10 +288,16 @@ h3 {
   align-items: start;
   border-top: 1px solid var(--line);
   display: grid;
-  gap: clamp(2rem, 6vw, 6rem);
-  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
-  padding-bottom: clamp(4rem, 9vw, 7rem);
-  padding-top: clamp(4rem, 9vw, 7rem);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(300px, 0.9fr) minmax(320px, 1fr);
+  padding-bottom: clamp(3.5rem, 7vw, 5.75rem);
+  padding-top: clamp(3.5rem, 7vw, 5.75rem);
+}
+
+.positioning h2 {
+  font-size: clamp(2.55rem, 4.55vw, 4.15rem);
+  line-height: 1.04;
+  max-width: 12ch;
 }
 
 .positioning p:last-child,
@@ -322,13 +328,31 @@ h3 {
 
 .section-heading {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
-  margin-bottom: clamp(2rem, 5vw, 4rem);
+  column-gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-areas:
+    "kicker body"
+    "title body";
+  grid-template-columns: minmax(300px, 0.9fr) minmax(320px, 1fr);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  row-gap: 0.65rem;
+}
+
+.section-heading .section-kicker {
+  grid-area: kicker;
+  margin-bottom: 0;
+}
+
+.section-heading h2 {
+  font-size: clamp(2.55rem, 4.8vw, 4.35rem);
+  grid-area: title;
+  line-height: 1.03;
+  max-width: 12ch;
 }
 
 .section-heading p {
   align-self: end;
+  grid-area: body;
+  margin-bottom: 0;
 }
 
 .services-photo {
@@ -377,15 +401,16 @@ h3 {
 .about {
   align-items: start;
   display: grid;
-  gap: clamp(2rem, 5vw, 4rem);
-  grid-template-columns: minmax(260px, 0.9fr) minmax(340px, 1.1fr);
-  padding-bottom: clamp(4rem, 9vw, 7rem);
-  padding-top: clamp(4rem, 9vw, 7rem);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(340px, 0.92fr) minmax(360px, 1.08fr);
+  padding-bottom: clamp(3.5rem, 8vw, 6rem);
+  padding-top: clamp(3.5rem, 8vw, 6rem);
 }
 
 .about-copy h2 {
-  font-size: clamp(2.4rem, 5.2vw, 5.1rem);
-  max-width: 10.5ch;
+  font-size: clamp(2.45rem, 4.55vw, 4.1rem);
+  line-height: 1.04;
+  max-width: 12.5ch;
 }
 
 .team-panel {
@@ -602,7 +627,22 @@ input[type="file"] {
   }
 
   .about-copy h2 {
-    max-width: 14ch;
+    font-size: clamp(2.25rem, 8.5vw, 3.6rem);
+    max-width: 13ch;
+  }
+
+  .positioning h2,
+  .section-heading h2 {
+    font-size: clamp(2.25rem, 8.5vw, 3.6rem);
+    max-width: 13ch;
+  }
+
+  .section-heading {
+    grid-template-areas:
+      "kicker"
+      "title"
+      "body";
+    row-gap: 0.75rem;
   }
 
   .cta .button {
