@@ -229,6 +229,10 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.heading-phrase {
+  white-space: nowrap;
+}
+
 h3 {
   font-size: clamp(1.25rem, 2vw, 1.72rem);
   line-height: 1.14;
@@ -671,8 +675,18 @@ input[type="file"] {
   }
 
   h1 {
-    font-size: clamp(2.8rem, 11vw, 4.5rem);
-    max-width: 13ch;
+    font-size: clamp(1.7rem, 8.6vw, 4.5rem);
+    max-width: none;
+  }
+
+  h1 span {
+    text-wrap: normal;
+    white-space: nowrap;
+  }
+
+  h1 span:first-child {
+    max-width: 10.6ch;
+    white-space: normal;
   }
 
   .about-copy h2 {
@@ -683,8 +697,8 @@ input[type="file"] {
   .positioning h2,
   .section-heading h2,
   .contact-intro h2 {
-    font-size: clamp(2.25rem, 8.5vw, 3.6rem);
-    max-width: 16ch;
+    font-size: clamp(2rem, 7.4vw, 3.25rem);
+    max-width: 18ch;
   }
 
   .contact-intro h2 {
@@ -727,7 +741,9 @@ input[type="file"] {
   }
 
   .brand-name {
-    max-width: 18ch;
+    font-size: clamp(0.82rem, 3.4vw, 0.95rem);
+    max-width: none;
+    white-space: nowrap;
   }
 
   .menu-toggle {
