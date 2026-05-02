@@ -263,7 +263,7 @@ h3 {
   min-height: 48px;
   padding: 0.85rem 1.1rem;
   text-decoration: none;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .button:hover {
@@ -281,8 +281,16 @@ h3 {
 }
 
 .button.secondary {
-  background: transparent;
-  color: var(--forge);
+  background: oklch(99% 0.006 205);
+  border-color: oklch(72% 0.06 203);
+  box-shadow: 0 10px 24px oklch(22% 0.018 215 / 0.1);
+  color: var(--deep);
+}
+
+.button.secondary:hover {
+  background: var(--paper);
+  border-color: var(--forge);
+  color: var(--forge-strong);
 }
 
 .hero-media {
@@ -400,14 +408,15 @@ h3 {
 
 .services-photo {
   margin: 0 auto clamp(2rem, 5vw, 4rem);
-  max-width: calc(var(--max) - (2 * var(--space-md)));
+  max-width: min(1040px, calc(var(--max) - (2 * var(--space-md))));
 }
 
 .services-photo img {
-  aspect-ratio: 16 / 6;
+  aspect-ratio: 16 / 5.5;
   border: 2px solid var(--image-frame);
   box-shadow: var(--image-frame-shadow);
   display: block;
+  max-height: 360px;
   object-fit: cover;
   width: 100%;
 }
@@ -799,10 +808,12 @@ input[type="file"] {
 
   .services-photo {
     margin-bottom: clamp(1.35rem, 6vw, 2.25rem);
+    max-width: min(100%, 520px);
   }
 
   .services-photo img {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 7;
+    max-height: 240px;
     object-position: center 48%;
   }
 
