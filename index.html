@@ -20,7 +20,12 @@
           <span class="brand-mark">FFE</span>
           <span class="brand-name">Forge Forward Engineering</span>
         </a>
-        <div class="nav-links">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-menu">
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+        </button>
+        <div class="nav-links" id="primary-menu">
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#services">Our Services</a>
@@ -247,5 +252,28 @@
       <p>Forge Forward Engineering LLC</p>
       <a href="#home">Back to top</a>
     </footer>
+
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const primaryMenu = document.querySelector("#primary-menu");
+
+      if (menuToggle && primaryMenu) {
+        const setMenuOpen = (isOpen) => {
+          menuToggle.setAttribute("aria-expanded", String(isOpen));
+          menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+          primaryMenu.classList.toggle("is-open", isOpen);
+        };
+
+        menuToggle.addEventListener("click", () => {
+          setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+        });
+
+        primaryMenu.addEventListener("click", (event) => {
+          if (event.target.closest("a")) {
+            setMenuOpen(false);
+          }
+        });
+      }
+    </script>
   </body>
 </html>

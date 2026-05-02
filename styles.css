@@ -9,6 +9,8 @@
   --oxide: oklch(57% 0.115 53);
   --deep: oklch(28% 0.05 205);
   --deep-ink: oklch(93% 0.012 205);
+  --image-frame: oklch(99% 0.006 205 / 0.9);
+  --image-frame-shadow: inset 0 0 0 1px oklch(22% 0.018 215 / 0.12);
   --shadow: 0 24px 60px oklch(22% 0.018 215 / 0.13);
   --space-2xs: 0.45rem;
   --space-xs: 0.75rem;
@@ -139,6 +141,41 @@ a:hover {
   padding: 0.65rem 0.9rem;
 }
 
+.menu-toggle {
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 0.28rem;
+  height: 44px;
+  justify-content: center;
+  padding: 0;
+  width: 44px;
+}
+
+.menu-toggle-bar {
+  background: currentColor;
+  display: block;
+  height: 2px;
+  transition: opacity 180ms ease, transform 180ms ease;
+  width: 18px;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:first-child {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bar:last-child {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
 .hero {
   align-items: stretch;
   display: grid;
@@ -258,6 +295,8 @@ h3 {
 }
 
 .hero-media img {
+  border: 2px solid var(--image-frame);
+  box-shadow: var(--image-frame-shadow);
   height: 100%;
   min-height: 330px;
   object-fit: cover;
@@ -362,7 +401,8 @@ h3 {
 
 .services-photo img {
   aspect-ratio: 16 / 6;
-  border: 1px solid var(--line);
+  border: 2px solid var(--image-frame);
+  box-shadow: var(--image-frame-shadow);
   display: block;
   object-fit: cover;
   width: 100%;
@@ -437,6 +477,8 @@ h3 {
 
 .team-photo img {
   aspect-ratio: 4 / 5;
+  border: 2px solid var(--image-frame);
+  box-shadow: var(--image-frame-shadow);
   height: auto;
   object-fit: cover;
   object-position: center 28%;
@@ -675,30 +717,56 @@ input[type="file"] {
   }
 
   .nav {
+    align-items: center;
+    flex-direction: row;
     gap: var(--space-sm);
+    min-height: 64px;
+    padding-bottom: 0.65rem;
+    padding-top: 0.65rem;
+    position: relative;
   }
 
   .brand-name {
     max-width: 18ch;
   }
 
+  .menu-toggle {
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
   .nav-links {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    display: none;
+    gap: 0;
+    left: var(--space-md);
+    padding: 0.35rem;
+    position: absolute;
+    right: var(--space-md);
+    top: calc(100% - 0.2rem);
+    z-index: 30;
+  }
+
+  .nav-links.is-open {
     display: grid;
-    gap: 0.45rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .nav-links a {
     align-items: center;
-    border: 1px solid var(--line);
+    border: 0;
     display: inline-flex;
-    justify-content: center;
-    min-height: 44px;
-    padding: 0.55rem 0.7rem;
+    justify-content: flex-start;
+    min-height: 46px;
+    padding: 0.65rem 0.8rem;
+    width: 100%;
   }
 
   .nav-links .nav-action {
-    padding: 0.55rem 0.7rem;
+    margin-top: 0.2rem;
+    padding: 0.65rem 0.8rem;
   }
 
   .hero {
@@ -741,8 +809,7 @@ input[type="file"] {
     width: 100%;
   }
 
-  .hero-actions,
-  .nav-links {
+  .hero-actions {
     width: 100%;
   }
 }
