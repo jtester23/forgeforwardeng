@@ -323,7 +323,7 @@ h3 {
 .service-list {
   margin-left: auto;
   margin-right: auto;
-  max-width: var(--max);
+  max-width: calc(var(--max) - (2 * var(--space-md)));
 }
 
 .section-heading {
@@ -357,7 +357,7 @@ h3 {
 
 .services-photo {
   margin: 0 auto clamp(2rem, 5vw, 4rem);
-  max-width: var(--max);
+  max-width: calc(var(--max) - (2 * var(--space-md)));
 }
 
 .services-photo img {
