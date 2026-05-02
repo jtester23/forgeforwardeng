@@ -713,8 +713,13 @@ input[type="file"] {
     min-height: 270px;
   }
 
+  .services-photo {
+    margin-bottom: clamp(1.35rem, 6vw, 2.25rem);
+  }
+
   .services-photo img {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
+    object-position: center 48%;
   }
 
   .service-item,
