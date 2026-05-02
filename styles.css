@@ -493,10 +493,17 @@ h3 {
 
 .contact {
   display: grid;
-  gap: clamp(2rem, 7vw, 6rem);
-  grid-template-columns: minmax(260px, 0.72fr) minmax(320px, 1.28fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(360px, 0.86fr) minmax(360px, 1.14fr);
   padding-bottom: clamp(4rem, 9vw, 7rem);
   padding-top: clamp(4rem, 9vw, 7rem);
+}
+
+.contact-intro h2 {
+  font-size: clamp(2.7rem, 4.2vw, 4rem);
+  line-height: 1.04;
+  max-width: none;
+  white-space: nowrap;
 }
 
 address {
@@ -632,9 +639,15 @@ input[type="file"] {
   }
 
   .positioning h2,
-  .section-heading h2 {
+  .section-heading h2,
+  .contact-intro h2 {
     font-size: clamp(2.25rem, 8.5vw, 3.6rem);
     max-width: 13ch;
+  }
+
+  .contact-intro h2 {
+    max-width: none;
+    white-space: normal;
   }
 
   .section-heading {
